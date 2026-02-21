@@ -7,7 +7,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impressum – dein Praxisauftritt</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script data-goatcounter="https://deinppraxisauftritt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <style>
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -58,7 +59,14 @@ footer { background:var(--dark); padding:40px 72px; display:flex; justify-conten
     <a href="kontakt.html">Kontakt</a>
     <a href="kontakt.html" class="nav-cta">Kontakt aufnehmen</a>
   </div>
+  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
 </nav>
+<div id="mobile-nav" class="nav-mobile">
+  <a href="index.html">Start</a>
+  <a href="pakete.html">Pakete</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
 <div class="page-header">
   <div class="accent-bar"></div>
@@ -118,5 +126,6 @@ footer { background:var(--dark); padding:40px 72px; display:flex; justify-conten
   <p class="footer-copy">© 2026 dein-praxisauftritt.de · Andreas Janusewski</p>
 </footer>
 
+<script src="js/nav.js"></script>
 </body>
 </html>

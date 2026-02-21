@@ -7,11 +7,13 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>dein Praxisauftritt – Websites für soziale Berufe</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ── RESET & BASE ── */
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
+[id] { scroll-margin-top: 75px; }
 body {
   font-family:'Inter',sans-serif;
   background:#EFEDE8; color:#2E2E2E;
@@ -407,7 +409,15 @@ footer {
     <a href="kontakt.html">Kontakt</a>
     <a href="kontakt.html" class="nav-cta">Kontakt aufnehmen</a>
   </div>
+  <button class="burger" id="burger" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
 </nav>
+<div id="mobile-nav" class="nav-mobile">
+  <a href="#leistungen">Leistungen</a>
+  <a href="pakete.html">Pakete</a>
+  <a href="ueber-mich.html">Über mich</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="kontakt.html" class="nav-cta">Kontakt aufnehmen</a>
+</div>
 
 <!-- ── HERO ── -->
 <div class="hero">
@@ -633,5 +643,6 @@ footer {
   <p class="footer-copy">© 2026 dein-praxisauftritt.de · Andreas Janusewski</p>
 </footer>
 
+<script src="js/nav.js"></script>
 </body>
 </html>
