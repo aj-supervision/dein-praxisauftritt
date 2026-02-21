@@ -74,7 +74,8 @@ nav {
 .paket-card.featured .paket-preis { color:var(--accent); }
 .paket-preis span { font-size:15px; font-weight:400; color:var(--mid); }
 .paket-card.featured .paket-preis span { color:rgba(255,255,255,0.5); }
-.paket-zeit { font-size:12px; color:var(--mid); margin-top:6px; }
+.paket-zeit { font-size:12px; color:var(--mid); margin-top:6px; display:flex; align-items:center; gap:5px; }
+.paket-zeit svg { width:13px; height:13px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; flex-shrink:0; }
 .paket-card.featured .paket-zeit { color:rgba(255,255,255,0.45); }
 
 .paket-body { padding:28px 32px; flex:1; display:flex; flex-direction:column; }
@@ -160,7 +161,7 @@ footer { background:var(--dark); padding:40px 72px; display:flex; justify-conten
         <div class="paket-name">Starter</div>
         <div class="paket-tagline">Für den schnellen, sauberen Einstieg</div>
         <div class="paket-preis">600 €<span> einmalig</span></div>
-        <div class="paket-zeit">⏱ Fertig in 5–7 Werktagen</div>
+        <div class="paket-zeit"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Fertig in 5–7 Werktagen</div>
       </div>
       <div class="paket-body">
         <ul class="paket-features">
@@ -184,7 +185,7 @@ footer { background:var(--dark); padding:40px 72px; display:flex; justify-conten
         <div class="paket-name">Professional</div>
         <div class="paket-tagline">Für einen vollständigen Auftritt</div>
         <div class="paket-preis">1.100 €<span> einmalig</span></div>
-        <div class="paket-zeit">⏱ Fertig in 2–3 Wochen</div>
+        <div class="paket-zeit"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Fertig in 2–3 Wochen</div>
       </div>
       <div class="paket-body">
         <ul class="paket-features">
@@ -208,7 +209,7 @@ footer { background:var(--dark); padding:40px 72px; display:flex; justify-conten
         <div class="paket-name">Komplett</div>
         <div class="paket-tagline">Rundum-sorglos bis zum Go-live</div>
         <div class="paket-preis">1.600 €<span> einmalig</span></div>
-        <div class="paket-zeit">⏱ Zeitplan individuell abgestimmt</div>
+        <div class="paket-zeit"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Zeitplan individuell abgestimmt</div>
       </div>
       <div class="paket-body">
         <ul class="paket-features">
