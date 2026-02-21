@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dein Praxisauftritt – Websites für soziale Berufe</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Inter',sans-serif;
+  background:#EFEDE8; color:#2E2E2E;
+  font-size:16px; line-height:1.6;
+}
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+
+/* ── VARIABLEN ── */
+:root {
+  --primary: #4A3050;
+  --primary-light: #5d3f65;
+  --accent: #C9A84C;
+  --bg: #EFEDE8;
+  --dark: #2E2E2E;
+  --mid: #555;
+  --border: #d8d4ce;
+}
+
+/* ── NAVIGATION ── */
+nav {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px 72px; background:var(--primary);
+  position:sticky; top:0; z-index:100;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+}
+.logo { display:flex; flex-direction:column; gap:1px; line-height:1; }
+.logo .top {
+  font-family:'Lora',serif; font-style:italic; font-weight:600;
+  color:var(--accent); font-size:13px; letter-spacing:0.06em;
+}
+.logo .bottom {
+  font-family:'Inter',sans-serif; font-weight:700;
+  letter-spacing:0.16em; font-size:18px;
+  text-transform:uppercase; color:#EFEDE8;
+}
+.nav-links { display:flex; gap:36px; align-items:center; }
+.nav-links a {
+  color:rgba(255,255,255,0.65); font-size:14px;
+  font-weight:400; letter-spacing:0.02em;
+}
+.nav-links a:hover { color:var(--accent); }
+.nav-cta {
+  background:var(--accent); color:#fff;
+  padding:10px 24px; font-size:13px; font-weight:600;
+  border-radius:3px; letter-spacing:0.05em;
+}
+
+/* ── HERO ── */
+.hero {
+  display:grid;
+  grid-template-columns:5px 1fr 440px;
+  min-height:540px;
+}
+.accent-bar { background:var(--accent); }
+.hero-left {
+  background:var(--bg); padding:80px 64px 80px 72px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero-tags { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
+.tag {
+  display:inline-block; font-size:11px; font-weight:600;
+  letter-spacing:0.16em; text-transform:uppercase;
+  padding:5px 14px; border-radius:2px;
+}
+.tag-dark { background:var(--primary); color:#EFEDE8; }
+.tag-light { color:#888; border:1px solid var(--border); }
+
+h1 {
+  font-family:'Lora',serif; font-weight:700;
+  color:var(--dark); font-size:46px; line-height:1.18;
+  margin-bottom:24px;
+}
+h1 em { font-style:italic; color:var(--primary); }
+
+.hero-sub {
+  color:var(--mid); font-size:18px; line-height:1.75;
+  margin-bottom:40px; max-width:500px;
+}
+.cta-group { display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+.btn-primary {
+  background:var(--primary); color:#EFEDE8;
+  padding:15px 32px; font-size:15px; font-weight:600;
+  border-radius:3px; letter-spacing:0.04em;
+}
+.btn-primary:hover { background:var(--primary-light); }
+.btn-ghost {
+  color:var(--primary); font-size:15px; font-weight:500;
+  border-bottom:1px solid var(--accent); padding-bottom:2px;
+}
+.trust {
+  display:flex; gap:32px; margin-top:48px;
+  padding-top:36px; border-top:1px solid var(--border);
+}
+.trust-item .num {
+  font-size:26px; font-weight:700; color:var(--primary); line-height:1;
+}
+.trust-item .lbl {
+  font-size:12px; color:#888; margin-top:4px; letter-spacing:0.02em;
+}
+.hero-right {
+  background:var(--primary); position:relative; overflow:hidden;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.hero-right img {
+  width:100%; height:100%; object-fit:cover; object-position:center top;
+  opacity:0.5; filter:grayscale(100%);
+  position:absolute; inset:0; mix-blend-mode:luminosity;
+}
+.hero-right::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:200px;
+  background:linear-gradient(to top, var(--primary) 0%, transparent 100%);
+  z-index:2;
+}
+.photo-card {
+  position:relative; z-index:3; margin:24px;
+  padding:26px 28px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(201,168,76,0.35);
+  border-radius:5px;
+}
+.photo-card p {
+  font-family:'Lora',serif; font-style:italic;
+  color:#EFEDE8; font-size:16px; line-height:1.65; margin-bottom:10px;
+}
+.photo-card cite { color:var(--accent); font-size:12px; letter-spacing:0.05em; }
+
+/* ── LEISTUNGSSTREIFEN ── */
+.streifen {
+  background:var(--dark); padding:24px 72px;
+  display:flex; gap:0;
+}
+.streifen-item {
+  flex:1; display:flex; align-items:center; gap:12px;
+  padding:0 28px; color:rgba(255,255,255,0.6); font-size:13px;
+  border-right:1px solid var(--border);
+}
+.streifen-item:first-child { padding-left:0; }
+.streifen-item:last-child { border-right:none; }
+.s-icon {
+  width:26px; height:26px; background:var(--accent);
+  border-radius:3px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px;
+}
+
+/* ── PROBLEM-SEKTION ── */
+.problem {
+  display:grid; grid-template-columns:1fr 1fr;
+  min-height:400px;
+}
+.problem-left {
+  background:var(--primary); padding:80px 72px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.section-label {
+  color:var(--accent); font-size:11px; font-weight:600;
+  letter-spacing:0.2em; text-transform:uppercase;
+  margin-bottom:20px;
+}
+.problem-left h2 {
+  font-family:'Lora',serif; font-weight:700;
+  color:#EFEDE8; font-size:34px; line-height:1.25; margin-bottom:24px;
+}
+.problem-left p {
+  color:rgba(255,255,255,0.7); font-size:16px;
+  line-height:1.75; max-width:420px;
+}
+.problem-right {
+  background:#e8e4de; padding:80px 64px;
+  display:flex; flex-direction:column; justify-content:center; gap:28px;
+}
+.problem-item {
+  display:flex; gap:18px; align-items:flex-start;
+}
+.problem-item .check {
+  width:32px; height:32px; background:var(--primary);
+  border-radius:50%; flex-shrink:0; margin-top:2px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--accent); font-size:14px; font-weight:700;
+}
+.problem-item h3 { font-size:16px; font-weight:600; color:var(--dark); margin-bottom:4px; }
+.problem-item p  { font-size:14px; color:var(--mid); line-height:1.6; }
+
+/* ── PAKETE ── */
+.pakete { padding:96px 72px; background:var(--bg); }
+.section-header { text-align:center; margin-bottom:60px; }
+.section-header h2 {
+  font-family:'Lora',serif; font-size:36px;
+  color:var(--dark); margin-bottom:12px; font-weight:700;
+}
+.section-header p { color:var(--mid); font-size:17px; max-width:520px; margin:0 auto; }
+.pakete-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  max-width:1100px; margin:0 auto;
+}
+.paket-card {
+  background:#fff; border-radius:6px; overflow:hidden;
+  border:1px solid var(--border);
+  display:flex; flex-direction:column;
+  transition:box-shadow 0.2s;
+}
+.paket-card:hover { box-shadow:0 8px 32px rgba(74,48,80,0.12); }
+.paket-card.featured {
+  border-color:var(--primary);
+  box-shadow:0 4px 24px rgba(74,48,80,0.15);
+}
+.paket-header {
+  background:var(--bg); padding:28px 32px;
+  border-bottom:1px solid var(--border);
+}
+.paket-card.featured .paket-header { background:var(--primary); }
+.paket-badge {
+  display:inline-block; background:var(--accent); color:#fff;
+  font-size:10px; font-weight:700; letter-spacing:0.14em;
+  text-transform:uppercase; padding:3px 10px; border-radius:2px;
+  margin-bottom:12px;
+}
+.paket-name {
+  font-size:20px; font-weight:700; color:var(--dark); margin-bottom:8px;
+}
+.paket-card.featured .paket-name { color:#EFEDE8; }
+.paket-preis {
+  font-size:36px; font-weight:700; color:var(--primary); line-height:1;
+}
+.paket-card.featured .paket-preis { color:var(--accent); }
+.paket-preis span { font-size:16px; font-weight:400; color:var(--mid); }
+.paket-card.featured .paket-preis span { color:rgba(255,255,255,0.5); }
+.paket-body { padding:28px 32px; flex:1; display:flex; flex-direction:column; }
+.paket-features { list-style:none; flex:1; }
+.paket-features li {
+  display:flex; gap:10px; align-items:flex-start;
+  font-size:14px; color:var(--mid); padding:8px 0;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.paket-features li:last-child { border-bottom:none; }
+.paket-features li::before {
+  content:'✓'; color:var(--accent); font-weight:700;
+  flex-shrink:0; margin-top:1px;
+}
+.paket-cta {
+  margin-top:24px; display:block; text-align:center;
+  background:var(--primary); color:#EFEDE8;
+  padding:13px; border-radius:3px; font-size:14px; font-weight:600;
+  letter-spacing:0.04em;
+}
+.paket-card.featured .paket-cta { background:var(--accent); }
+
+/* ── ÜBER MICH ── */
+.ueber {
+  display:grid; grid-template-columns:400px 1fr;
+  background:var(--primary);
+}
+.ueber-foto {
+  position:relative; overflow:hidden; min-height:420px;
+}
+.ueber-foto img {
+  width:100%; height:100%; object-fit:cover; object-position:center top;
+  filter:grayscale(100%); opacity:0.65;
+  mix-blend-mode:luminosity;
+}
+.ueber-foto::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to right, transparent 60%, var(--primary) 100%);
+}
+.ueber-text {
+  padding:80px 72px 80px 48px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.ueber-text h2 {
+  font-family:'Lora',serif; font-size:32px; font-weight:700;
+  color:#EFEDE8; margin-bottom:20px; line-height:1.3;
+}
+.ueber-text p {
+  color:rgba(255,255,255,0.72); font-size:16px;
+  line-height:1.8; margin-bottom:20px; max-width:480px;
+}
+.ueber-text a {
+  display:inline-block; color:var(--accent); font-size:14px;
+  font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  border-bottom:1px solid var(--accent); padding-bottom:2px; margin-top:8px;
+}
+
+/* ── TESTIMONIAL ── */
+.testimonial {
+  background:#e8e4de; padding:80px 72px;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.quote-icon { color:var(--accent); font-size:56px; line-height:1; margin-bottom:24px; opacity:0.6; }
+.testimonial blockquote {
+  font-family:'Lora',serif; font-style:italic;
+  font-size:24px; line-height:1.65; color:var(--dark);
+  max-width:700px; margin-bottom:28px;
+}
+.testimonial cite { color:var(--mid); font-size:14px; letter-spacing:0.06em; }
+.testimonial-dots { display:flex; gap:8px; margin-top:32px; }
+.testimonial-dots span {
+  width:8px; height:8px; border-radius:50%; background:var(--border);
+}
+.testimonial-dots span.active { background:var(--accent); }
+
+/* ── TESTIMONIAL B ── */
+.testimonial-b { background:#e8e4de; }
+.tb-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  min-height:300px;
+}
+.tb-left {
+  padding:72px 64px; border-right:1px solid rgba(255,255,255,0.1);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.tb-bigquote {
+  font-family:'Lora',serif; font-size:96px;
+  color:var(--primary); opacity:0.15; line-height:0.7; margin-bottom:20px;
+}
+.tb-left blockquote {
+  font-family:'Lora',serif; font-style:italic;
+  color:var(--dark); font-size:22px; line-height:1.65;
+}
+.tb-right {
+  padding:72px 64px;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.tb-cite { }
+.tb-name { color:var(--primary); font-size:17px; font-weight:600; margin-bottom:4px; }
+.tb-role { color:var(--mid); font-size:14px; }
+.tb-more { }
+.tb-dots { display:flex; gap:8px; margin-bottom:12px; }
+.tb-dots span { width:8px; height:8px; border-radius:50%; background:var(--border); }
+.tb-dots span.active { background:var(--accent); width:22px; border-radius:4px; }
+.tb-note { color:var(--mid); font-size:12px; font-style:italic; opacity:0.6; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  background:var(--primary); padding:96px 72px;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.final-cta h2 {
+  font-family:'Lora',serif; font-size:38px; font-weight:700;
+  color:#EFEDE8; margin-bottom:16px; line-height:1.25; max-width:600px;
+}
+.final-cta p {
+  color:rgba(255,255,255,0.65); font-size:17px;
+  max-width:500px; margin-bottom:40px; line-height:1.75;
+}
+.final-cta-btns { display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
+.btn-accent {
+  background:var(--accent); color:#fff;
+  padding:16px 40px; font-size:15px; font-weight:600;
+  border-radius:3px; letter-spacing:0.04em;
+}
+.btn-outline {
+  border:1px solid rgba(255,255,255,0.3); color:#EFEDE8;
+  padding:16px 40px; font-size:15px; font-weight:400;
+  border-radius:3px; letter-spacing:0.04em;
+}
+
+/* ── FOOTER ── */
+footer {
+  background:var(--dark); padding:40px 72px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.footer-logo .top {
+  font-family:'Lora',serif; font-style:italic;
+  color:var(--accent); font-size:12px; letter-spacing:0.06em;
+}
+.footer-logo .bottom {
+  font-weight:700; letter-spacing:0.12em; font-size:15px;
+  text-transform:uppercase; color:#EFEDE8;
+}
+.footer-links { display:flex; gap:28px; }
+.footer-links a { color:rgba(255,255,255,0.45); font-size:13px; }
+.footer-links a:hover { color:var(--accent); }
+.footer-copy { color:rgba(255,255,255,0.3); font-size:12px; }
+</style>
+  <script data-goatcounter="https://deinppraxisauftritt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="logo">
+    <span class="top">dein</span>
+    <span class="bottom">Praxisauftritt</span>
+  </div>
+  <div class="nav-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#pakete">Pakete</a>
+    <a href="#ueber">Über mich</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#kontakt" class="nav-cta">Kontakt aufnehmen</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="accent-bar"></div>
+  <div class="hero-left">
+    <div class="hero-tags">
+      <span class="tag tag-dark">Website-Service</span>
+      <span class="tag tag-light">für soziale Berufe</span>
+    </div>
+    <h1>Deine Praxis.<br>Dein Auftritt.<br><em>Endlich sichtbar.</em></h1>
+    <p class="hero-sub">
+      Professionelle Websites für Supervisor:innen, Coaches und Therapeut:innen –
+      ohne Technik-Stress, ohne Design-Chaos. Du machst deinen Job.
+      Ich mache deinen Auftritt.
+    </p>
+    <div class="cta-group">
+      <a href="#pakete" class="btn-primary">Pakete ansehen</a>
+      <a href="#kontakt" class="btn-ghost">Kontakt aufnehmen</a>
+    </div>
+    <div class="trust">
+      <div class="trust-item"><span class="num">3</span><span class="lbl">Pakete zur Wahl</span></div>
+      <div class="trust-item"><span class="num">1–2</span><span class="lbl">Wochen bis Launch</span></div>
+      <div class="trust-item"><span class="num">100%</span><span class="lbl">Auf dich zugeschnitten</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="andy_foto.jpg" alt="Andreas Janusewski">
+    <div class="photo-card">
+      <p>„Ich bin Sozialarbeiter und Supervisor –<br>ich weiß, was deine Zielgruppe braucht."</p>
+      <cite>— Andreas Janusewski, Supervisor &amp; Gründer</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ── LEISTUNGSSTREIFEN ── -->
+<div class="streifen">
+  <div class="streifen-item"><div class="s-icon">🎨</div>Individuelles Design</div>
+  <div class="streifen-item"><div class="s-icon">⚡</div>Fertig in 5–7 Werktagen</div>
+  <div class="streifen-item"><div class="s-icon">📱</div>Mobil optimiert</div>
+  <div class="streifen-item"><div class="s-icon">🔍</div>SEO-Grundlage inklusive</div>
+  <div class="streifen-item"><div class="s-icon">✉️</div>Kontaktformular inklusive</div>
+</div>
+
+<!-- ── PROBLEM-SEKTION ── -->
+<section id="leistungen" class="problem">
+  <div class="problem-left">
+    <p class="section-label">Warum du hier bist</p>
+    <h2>Du bist Experte in deinem Beruf.<br>Nicht in Website-Bau.</h2>
+    <p>
+      Und das ist völlig okay. Viele Selbstständige in sozialen Berufen haben eine
+      wichtige Arbeit – aber kaum Zeit, sich mit Technik, Design und SEO auseinanderzusetzen.
+      Genau da komme ich ins Spiel.
+    </p>
+  </div>
+  <div class="problem-right">
+    <div class="problem-item">
+      <div class="check">✓</div>
+      <div>
+        <h3>Kein Technik-Stress</h3>
+        <p>Du gibst mir dein Briefing – ich kümmere mich um alles andere. Von der Domain bis zum Go-live.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="check">✓</div>
+      <div>
+        <h3>Kein Baukastensystem</h3>
+        <p>Keine austauschbaren Templates. Deine Website wird auf dich und deine Zielgruppe zugeschnitten.</p>
+      </div>
+    </div>
+    <div class="problem-item">
+      <div class="check">✓</div>
+      <div>
+        <h3>Jemand der deine Welt wirklich kennt</h3>
+        <p>Ich bin selbst Sozialarbeiter und Supervisor. Kein Agenturmensch, der mal ein Handbuch gelesen hat – sondern jemand, der deinen Alltag kennt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PAKETE ── -->
+<section id="pakete" class="pakete">
+  <div class="section-header">
+    <h2>Drei Pakete. Ein Ziel.</h2>
+    <p>Sichtbarkeit – ohne Kompromisse bei Qualität oder deiner Zeit.</p>
+  </div>
+  <div class="pakete-grid">
+
+    <div class="paket-card">
+      <div class="paket-header">
+        <div class="paket-name">Starter</div>
+        <div class="paket-preis">600 €<span> einmalig</span></div>
+      </div>
+      <div class="paket-body">
+        <ul class="paket-features">
+          <li>1-seitige Website (Landingpage)</li>
+          <li>Kontaktformular inklusive</li>
+          <li>Mobil optimiert</li>
+          <li>Fertig in 5–7 Werktagen</li>
+          <li>Domain-Einrichtung inklusive</li>
+          <li>1 Korrekturschleife</li>
+        </ul>
+        <a href="#kontakt" class="paket-cta">Starter wählen</a>
+      </div>
+    </div>
+
+    <div class="paket-card featured">
+      <div class="paket-header">
+        <div class="paket-badge">Empfohlen</div>
+        <div class="paket-name">Professional</div>
+        <div class="paket-preis">1.100 €<span> einmalig</span></div>
+      </div>
+      <div class="paket-body">
+        <ul class="paket-features">
+          <li>Bis zu 5 Unterseiten</li>
+          <li>Kontaktformular + Buchungslink</li>
+          <li>SEO-Grundlage (Titel, Meta, Struktur)</li>
+          <li>Mobil optimiert</li>
+          <li>Fertig in 2–3 Wochen</li>
+          <li>Domain + Hosting-Einrichtung</li>
+          <li>2 Korrekturschleifen</li>
+          <li>Datenschutz + Impressum</li>
+        </ul>
+        <a href="#kontakt" class="paket-cta">Professional wählen</a>
+      </div>
+    </div>
+
+    <div class="paket-card">
+      <div class="paket-header">
+        <div class="paket-name">Komplett</div>
+        <div class="paket-preis">1.600 €<span> einmalig</span></div>
+      </div>
+      <div class="paket-body">
+        <ul class="paket-features">
+          <li>Alles aus Professional</li>
+          <li>Texterstellung inklusive</li>
+          <li>Professionelle Bildauswahl</li>
+          <li>Erweitertes SEO-Setup</li>
+          <li>Google Business-Eintrag</li>
+          <li>3 Monate Support nach Launch</li>
+          <li>Unbegrenzte Korrekturschleifen</li>
+        </ul>
+        <a href="#kontakt" class="paket-cta">Komplett wählen</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ÜBER MICH ── -->
+<section id="ueber" class="ueber">
+  <div class="ueber-foto">
+    <img src="andy_foto.jpg" alt="Andreas Janusewski">
+  </div>
+  <div class="ueber-text">
+    <p class="section-label" style="color:var(--accent);">Über mich</p>
+    <h2>Hi, ich bin Andreas –<br>Sozialarbeiter, Supervisor<br>und ich kenne deine Herausforderungen.</h2>
+    <p>
+      Ich weiß, wie es sich anfühlt, eine Praxis aufzubauen und gleichzeitig sichtbar
+      sein zu müssen – ohne Marketingbudget, ohne Technik-Team, oft nebenbei.
+      Als Sozialarbeiter und Supervisor kenne ich die Sprache deiner Zielgruppe,
+      ihre Erwartungen und was sie wirklich überzeugt.
+    </p>
+    <p>
+      Dein Praxisauftritt ist kein Agentur-Produkt von der Stange.
+      Du arbeitest direkt mit mir – von der ersten Idee bis zum Go-live.
+    </p>
+    <a href="#kontakt">Lass uns reden →</a>
+  </div>
+</section>
+
+<!-- ── TESTIMONIAL ── -->
+<section class="testimonial-b">
+  <div class="tb-inner">
+    <div class="tb-left">
+      <div class="tb-bigquote">"</div>
+      <blockquote>
+        Ich hatte lange gezögert. Dein Praxisauftritt war genau die
+        richtige Entscheidung – einfach, schnell, und das Ergebnis
+        hat mich wirklich überzeugt.
+      </blockquote>
+    </div>
+    <div class="tb-right">
+      <div class="tb-cite">
+        <div class="tb-name">Supervisorin</div>
+        <div class="tb-role">aus dem Rhein-Main-Gebiet</div>
+      </div>
+      <div class="tb-more">
+        <div class="tb-dots">
+          <span class="active"></span><span></span><span></span>
+        </div>
+        <p class="tb-note">Kundenreferenzen auf Anfrage verfügbar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section id="kontakt" class="final-cta">
+  <h2>Lass uns ins Gespräch kommen.</h2>
+  <p>
+    Kein Verkaufsgespräch, kein Druck. Wir schauen gemeinsam,
+    ob und wie ich dir helfen kann – kostenlos und unverbindlich.
+  </p>
+  <div class="final-cta-btns">
+    <a href="mailto:kontakt@dein-praxisauftritt.de" class="btn-accent">Nimm Kontakt zu mir auf</a>
+  </div>
+  <p style="margin-top:20px; color:rgba(255,255,255,0.45); font-size:14px; letter-spacing:0.04em;">
+    kontakt@dein-praxisauftritt.de
+  </p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <div class="top">dein</div>
+    <div class="bottom">Praxisauftritt</div>
+  </div>
+  <div class="footer-links">
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+    <a href="#">Kontakt</a>
+  </div>
+  <p class="footer-copy">© 2026 dein-praxisauftritt.de · Andreas Janusewski</p>
+</footer>
+
+</body>
+</html>
