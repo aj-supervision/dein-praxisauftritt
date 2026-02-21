@@ -1,4 +1,4 @@
-/* nav.js – Burger Menu für dein Praxisauftritt */
+/* nav.js – Burger Menu + Back-to-Top für dein Praxisauftritt */
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
     var burger = document.getElementById('burger');
@@ -29,4 +29,17 @@
       }
     });
   });
+
+  // ── BACK TO TOP ──
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('back-to-top');
+    if (!btn) return;
+    window.addEventListener('scroll', function() {
+      btn.classList.toggle('visible', window.scrollY > 320);
+    }, { passive: true });
+    btn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
 })();

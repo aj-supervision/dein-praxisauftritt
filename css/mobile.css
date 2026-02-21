@@ -4,6 +4,34 @@
    Breakpoint: 768px
    ═══════════════════════════════════════════ */
 
+/* ── BACK-TO-TOP BUTTON ── */
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: #4A3050;
+  border: 2px solid #C9A84C;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(74,48,80,0.35);
+  transition: background 0.2s, transform 0.2s;
+}
+#back-to-top.visible { display: flex; }
+#back-to-top:hover { background: #C9A84C; transform: translateY(-2px); }
+#back-to-top svg {
+  width: 18px; height: 18px;
+  stroke: #C9A84C; stroke-width: 2.5;
+  fill: none; stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke 0.2s;
+}
+#back-to-top:hover svg { stroke: #fff; }
+
 /* ── BURGER-BUTTON ── */
 .burger {
   display: none;
