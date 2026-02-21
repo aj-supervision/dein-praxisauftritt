@@ -107,12 +107,13 @@
   h2 { font-size: 22px !important; line-height: 1.3 !important; }
   h3 { font-size: 16px !important; }
 
-  /* ── BLOCKSATZ für Fließtext ── */
-  p, blockquote, li {
-    text-align: justify !important;
-    hyphens: auto !important;
-    -webkit-hyphens: auto !important;
+  /* Kein Blocksatz — linksbündig wie original */
+  /* Horizontales Scrollen verhindern */
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
   }
+  * { max-width: 100%; box-sizing: border-box !important; }
 
   /* ══════════════════════════
      INDEX – HERO
@@ -123,8 +124,21 @@
     min-height: auto !important;
   }
   .accent-bar { display: none !important; }
-  .hero-right { display: none !important; }
-  .hero-left { padding: 0 !important; grid-column: 1 !important; }
+
+  /* Hero-Foto: oben zeigen, volle Breite */
+  .hero-right {
+    display: block !important;
+    order: -1 !important;
+    height: 260px !important;
+    min-height: 260px !important;
+    width: 100% !important;
+    grid-column: 1 !important;
+  }
+  .hero-right::after {
+    background: linear-gradient(to top, #4A3050 0%, transparent 60%) !important;
+  }
+  .photo-card { display: none !important; } /* Zitat-Box auf Mobile ausblenden */
+  .hero-left { padding: 0 !important; grid-column: 1 !important; order: 0 !important; }
 
   /* Tags */
   .hero-tags { flex-wrap: wrap; gap: 8px !important; margin-bottom: 20px !important; }
@@ -226,8 +240,14 @@
   .ueber {
     grid-template-columns: 1fr !important;
   }
-  .ueber-img { display: none !important; }
-  .ueber-text { padding: 44px 20px !important; }
+  .ueber-foto {
+    min-height: 260px !important;
+    order: -1 !important;
+  }
+  .ueber-foto::after {
+    background: linear-gradient(to bottom, transparent 40%, #4A3050 100%) !important;
+  }
+  .ueber-text { padding: 44px 20px !important; order: 0 !important; }
 
   /* ══════════════════════════
      INDEX – TESTIMONIAL
