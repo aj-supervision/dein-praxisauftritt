@@ -39,7 +39,7 @@
       }, { passive: true });
     }
 
-    /* Auto-Play alle 6 Sekunden */
-    setInterval(function() { show(current + 1); }, 6000);
+    /* Auto-Play alle 10 Sekunden */
+    setInterval(function() { show(current + 1); }, 10000);
   });
 })();
