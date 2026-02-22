@@ -224,12 +224,28 @@ h1 em { font-style:italic; color:var(--primary); }
   background:#fff; border-radius:6px; overflow:hidden;
   border:1px solid var(--border);
   display:flex; flex-direction:column;
-  transition:box-shadow 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.paket-card:hover { box-shadow:0 8px 32px rgba(74,48,80,0.12); }
+.paket-card::before {
+  content:''; display:block; height:3px;
+  background:transparent;
+  transition: background 0.25s ease;
+}
+.paket-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(74,48,80,0.18);
+  border-color: var(--accent);
+}
+.paket-card:hover::before { background: var(--accent); }
 .paket-card.featured {
   border-color:var(--primary);
   box-shadow:0 4px 24px rgba(74,48,80,0.15);
+  transform: translateY(-4px);
+}
+.paket-card.featured:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 56px rgba(74,48,80,0.28);
+  border-color: var(--accent);
 }
 .paket-header {
   background:var(--bg); padding:28px 32px;
@@ -269,8 +285,21 @@ h1 em { font-style:italic; color:var(--primary); }
   background:var(--primary); color:#EFEDE8;
   padding:13px; border-radius:3px; font-size:14px; font-weight:600;
   letter-spacing:0.04em;
+  transition: background 0.2s ease;
 }
+.paket-card:hover .paket-cta { background:var(--accent); color:#fff; }
 .paket-card.featured .paket-cta { background:var(--accent); }
+.paket-card.featured:hover .paket-cta { background:#b8922e; }
+
+/* ── PAKET TOGGLE (Mobile) ── */
+.paket-header-top {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.paket-toggle-icon {
+  display:none; color:var(--mid);
+  transition: transform 0.3s ease;
+}
+.paket-card.featured .paket-toggle-icon { color:rgba(255,255,255,0.6); }
 
 /* ── ÜBER MICH ── */
 .ueber {
@@ -572,7 +601,12 @@ footer {
 
     <div class="paket-card">
       <div class="paket-header">
-        <div class="paket-name">Starter</div>
+        <div class="paket-header-top">
+          <div class="paket-name">Starter</div>
+          <span class="paket-toggle-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
         <div class="paket-preis">600 €<span> einmalig</span></div>
       </div>
       <div class="paket-body">
@@ -588,10 +622,15 @@ footer {
       </div>
     </div>
 
-    <div class="paket-card featured">
+    <div class="paket-card featured open">
       <div class="paket-header">
         <div class="paket-badge">Empfohlen</div>
-        <div class="paket-name">Professional</div>
+        <div class="paket-header-top">
+          <div class="paket-name">Professional</div>
+          <span class="paket-toggle-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
         <div class="paket-preis">1.100 €<span> einmalig</span></div>
       </div>
       <div class="paket-body">
@@ -611,12 +650,17 @@ footer {
 
     <div class="paket-card">
       <div class="paket-header">
-        <div class="paket-name">Komplett</div>
+        <div class="paket-header-top">
+          <div class="paket-name">Komplett</div>
+          <span class="paket-toggle-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
         <div class="paket-preis">1.600 €<span> einmalig</span></div>
       </div>
       <div class="paket-body">
         <ul class="paket-features">
-          <li>Alles aus Professional</li>
+          <li>Alles aus dem Paket Professional</li>
           <li>Texterstellung inklusive</li>
           <li>Professionelle Bildauswahl</li>
           <li>Erweitertes SEO-Setup</li>
@@ -758,5 +802,20 @@ footer {
 </button>
 <script src="js/nav.js"></script>
 <script src="js/slider.js"></script>
+<script>
+// Paket-Karten ausklappbar auf Mobile
+(function() {
+  function initPaketToggle() {
+    if (window.innerWidth > 768) return;
+    document.querySelectorAll('.paket-header').forEach(function(header) {
+      header.addEventListener('click', function() {
+        var card = header.closest('.paket-card');
+        card.classList.toggle('open');
+      });
+    });
+  }
+  initPaketToggle();
+})();
+</script>
 </body>
 </html>

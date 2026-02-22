@@ -258,9 +258,42 @@
   .pakete { padding: 52px 20px !important; }
   .pakete-grid {
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
+    gap: 16px !important;
   }
   .paket-card.featured { order: -1; }
+
+  /* Hover-Effekt auf Mobile deaktivieren */
+  .paket-card:hover,
+  .paket-card.featured:hover {
+    transform: none !important;
+  }
+  .paket-card.featured { transform: none !important; }
+
+  /* Toggle-Icon sichtbar auf Mobile */
+  .paket-toggle-icon { display: flex !important; }
+
+  /* Body eingeklappt by default */
+  .paket-body {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: max-height 0.35s ease, padding 0.3s ease !important;
+  }
+
+  /* Ausgeklappt wenn .open */
+  .paket-card.open .paket-body {
+    max-height: 600px !important;
+    padding: 24px 28px !important;
+  }
+
+  /* Pfeil dreht sich wenn offen */
+  .paket-card.open .paket-toggle-icon {
+    transform: rotate(180deg) !important;
+  }
+
+  /* Header klickbar machen */
+  .paket-header { cursor: pointer !important; }
 
   /* ══════════════════════════
      INDEX – ÜBER MICH TEASER
