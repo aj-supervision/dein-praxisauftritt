@@ -262,12 +262,21 @@
   }
   .paket-card.featured { order: -1; }
 
-  /* Hover-Effekt auf Mobile deaktivieren */
+  /* Hover-Effekt auf Mobile deaktivieren, Tap-Feedback statt hover */
   .paket-card:hover,
   .paket-card.featured:hover {
     transform: none !important;
+    box-shadow: 0 4px 24px rgba(74,48,80,0.15) !important;
   }
+  .paket-card:hover::before { background: transparent !important; }
+  .paket-card.featured:hover::before { background: transparent !important; }
   .paket-card.featured { transform: none !important; }
+  .paket-card:active {
+    transform: scale(0.97) !important;
+    transition: transform 0.1s ease !important;
+  }
+  .paket-card:hover .paket-cta { background: var(--primary) !important; color: #EFEDE8 !important; }
+  .paket-card.featured:hover .paket-cta { background: var(--accent) !important; }
 
   /* Toggle-Icon sichtbar auf Mobile */
   .paket-toggle-icon { display: flex !important; }

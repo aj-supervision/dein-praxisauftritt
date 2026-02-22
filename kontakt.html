@@ -288,5 +288,15 @@ form.addEventListener('submit', async function(e) {
   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 <script src="js/nav.js"></script>
+<script>
+(function() {
+  var p = new URLSearchParams(window.location.search).get('paket');
+  if (!p) return;
+  var sel = document.getElementById('paket');
+  var map = { starter: 'Starter (600 €)', professional: 'Professional (1.100 €)', komplett: 'Komplett (1.600 €)' };
+  var val = map[p.toLowerCase()];
+  if (val) sel.value = val;
+})();
+</script>
 </body>
 </html>
