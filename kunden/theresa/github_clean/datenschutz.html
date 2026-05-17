@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @font-face { font-family: 'Crimson Pro'; font-style: italic; font-weight: 300; font-display: swap; src: url('./assets/fonts/q5uSsoa5M_tv7IihmnkabAReu49Y_Bo-HVKMBi7Ke5s7.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: italic; font-weight: 400; font-display: swap; src: url('./assets/fonts/q5uSsoa5M_tv7IihmnkabAReu49Y_Bo-HVKMBi6Ue5s7.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: italic; font-weight: 500; font-display: swap; src: url('./assets/fonts/q5uSsoa5M_tv7IihmnkabAReu49Y_Bo-HVKMBi6me5s7.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: normal; font-weight: 300; font-display: swap; src: url('./assets/fonts/q5uUsoa5M_tv7IihmnkabC5XiXCAlXGks1WZkG18OA.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/q5uUsoa5M_tv7IihmnkabC5XiXCAlXGks1WZzm18OA.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/q5uUsoa5M_tv7IihmnkabC5XiXCAlXGks1WZ_G18OA.ttf') format('truetype'); }
+    @font-face { font-family: 'Crimson Pro'; font-style: normal; font-weight: 600; font-display: swap; src: url('./assets/fonts/q5uUsoa5M_tv7IihmnkabC5XiXCAlXGks1WZEGp8OA.ttf') format('truetype'); }
+    @font-face { font-family: 'Jost'; font-style: normal; font-weight: 300; font-display: swap; src: url('./assets/fonts/92zPtBhPNqw79Ij1E865zBUv7mz9JQVG.ttf') format('truetype'); }
+    @font-face { font-family: 'Jost'; font-style: normal; font-weight: 400; font-display: swap; src: url('./assets/fonts/92zPtBhPNqw79Ij1E865zBUv7myjJQVG.ttf') format('truetype'); }
+    @font-face { font-family: 'Jost'; font-style: normal; font-weight: 500; font-display: swap; src: url('./assets/fonts/92zPtBhPNqw79Ij1E865zBUv7myRJQVG.ttf') format('truetype'); }
+    :root { --cream:#f7f3ed; --warm-white:#fdfaf6; --blue:#6880a0; --blue-dark:#536881; --blue-line:rgba(104,128,160,0.15); --text:#2c2118; --text-mid:#584d44; --text-soft:#8a7e76; --max:980px; --r:18px; --r-lg:28px; }
+    * { box-sizing:border-box; margin:0; }
+    body { font-family:"Crimson Pro", Georgia, serif; background:var(--cream); color:var(--text); line-height:1.78; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(calc(100% - 48px), var(--max)); margin:0 auto; }
+    .topbar { position:sticky; top:0; z-index:100; background:rgba(247,243,237,0.93); backdrop-filter:blur(20px); border-bottom:1px solid var(--blue-line); }
+    .topbar-inner { min-height:92px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-family:"Jost", sans-serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--blue-dark); }
+    .back-link { font-family:"Jost", sans-serif; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-mid); }
+    main { padding:72px 0 84px; }
+    .eyebrow { font-family:"Jost", sans-serif; font-size:10.5px; font-weight:500; letter-spacing:0.20em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:12px; }
+    h1, h2 { font-weight:400; line-height:1.06; letter-spacing:-0.01em; }
+    h1 { font-size:clamp(38px,5vw,60px); margin-bottom:16px; }
+    h2 { font-size:clamp(24px,3vw,34px); margin:34px 0 10px; }
+    p, li { font-size:17px; color:var(--text-mid); }
+    .card { background:var(--warm-white); border:1px solid var(--blue-line); border-radius:var(--r-lg); padding:34px; }
+    ul { padding-left:20px; }
+    .meta { margin-top:22px; padding-top:18px; border-top:1px solid var(--blue-line); font-family:"Jost", sans-serif; font-size:12px; color:var(--text-soft); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">Heilpraxis Theresa Helfensteller</div>
+      <a class="back-link" href="./index.html">Zurück zur Startseite</a>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <div class="card">
+        <span class="eyebrow">Datenschutz</span>
+        <h1>Datenschutzerklärung</h1>
+        <p>Diese Erklärung beschreibt die Datenverarbeitung auf dem aktuellen technischen Stand dieser Website.</p>
+        <h2>1. Verantwortliche Stelle</h2>
+        <p>Theresa Maria Helfensteller<br>Vordere Straße 37<br>70734 Fellbach<br>E-Mail: kontakt@heilpraxis-theresa-helfensteller.de</p>
+        <h2>2. Bereitstellung der Website</h2>
+        <p>Beim Aufruf der Website können durch den Hosting-Anbieter technisch notwendige Server-Logfiles verarbeitet werden, insbesondere IP-Adresse, Datum und Uhrzeit des Abrufs, Browsertyp, Betriebssystem, Referrer-URL und aufgerufene Dateien. Die Verarbeitung erfolgt zur sicheren und stabilen Bereitstellung der Website auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <h2>3. Kontaktaufnahme per E-Mail und Kontaktformular</h2>
+        <p>Das Kontaktformular auf dieser Website versendet derzeit keine Daten an einen separaten Formular-Dienst, sondern bereitet die Nachricht in Ihrem lokalen E-Mail-Programm vor. Erst mit dem tatsächlichen Versand Ihrer E-Mail werden Ihre Angaben an die Praxis übermittelt.</p>
+        <p>Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage und gegebenenfalls zur Vertragsanbahnung auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO bzw. Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <h2>4. Gesundheitsdaten</h2>
+        <p>Bitte senden Sie sensible Gesundheitsdaten, Befunde oder Diagnosen möglichst nicht unverschlüsselt per E-Mail. Wenn Sie solche Informationen freiwillig übermitteln, erfolgt die Verarbeitung nur, soweit dies zur Bearbeitung Ihrer Anfrage erforderlich ist.</p>
+        <h2>5. Empfänger und Speicherdauer</h2>
+        <p>Eine Weitergabe erfolgt nur, soweit dies gesetzlich erlaubt, technisch erforderlich oder ausdrücklich gewünscht ist. Personenbezogene Daten werden nur so lange gespeichert, wie dies für die Bearbeitung Ihrer Anfrage oder zur Erfüllung rechtlicher Pflichten notwendig ist.</p>
+        <h2>6. Ihre Rechte</h2>
+        <ul>
+          <li>Auskunft über gespeicherte Daten</li>
+          <li>Berichtigung unrichtiger Daten</li>
+          <li>Löschung oder Einschränkung der Verarbeitung</li>
+          <li>Widerspruch gegen die Verarbeitung</li>
+          <li>Datenübertragbarkeit im gesetzlichen Rahmen</li>
+          <li>Beschwerde bei einer Datenschutz-Aufsichtsbehörde</li>
+        </ul>
+        <h2>7. Externe Dienste</h2>
+        <p>Auf dem aktuellen Stand werden die verwendeten Schriften lokal ausgeliefert. Analyse-, Tracking- oder Marketingdienste sind in dieser Version nicht eingebunden. Wenn später weitere externe Dienste ergänzt werden, muss diese Datenschutzerklärung entsprechend aktualisiert werden.</p>
+        <div class="meta">Stand: Mai 2026 · Vor Veröffentlichung bitte Hosting-Anbieter und finale technische Einbindungen noch einmal prüfen.</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
